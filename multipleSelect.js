@@ -48,8 +48,9 @@ export default class CustomMultiPicker extends Component {
 
   _onSelect = (item) => {
     var selected = this.state.selected
+    const maxSelections = this.props.maxSelections || 5
     if(this.props.multiple){
-      if(selected.indexOf(item) == -1){
+      if(selected.indexOf(item) == -1 && selected.length <= maxSelections){
         selected.push(item)
         this.setState({
           selected: selected
